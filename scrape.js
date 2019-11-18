@@ -11,7 +11,6 @@ nightmare
   .evaluate(function() {
     let nameNodes = document.querySelectorAll('h5');
     let idNodes = document.querySelectorAll('p.id');
-    let typeNodes = document.querySelectorAll('div.abilities')
     let nameList = Array.from(nameNodes);
     let idList = Array.from(idNodes);
     let names = nameList.map(function(node) {
@@ -22,11 +21,11 @@ nightmare
     });
 
     let pokemon = names.reduce((acc, current, index) => {
-      let id = ids[index]
-      let newPokemon = { Name: current, ID: id }
+      let id = ids[index];
+      let newPokemon = { Name: current, ID: id };
       !acc.includes(newPokemon) ? acc.push(newPokemon) : null;
       return acc;
-    }, [])
+    }, []);
 
     return pokemon;
   })
